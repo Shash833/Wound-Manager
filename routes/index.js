@@ -84,7 +84,7 @@ router.get("/api/patients/:id", async function (req, res) {
     catch (error) { console.log(error) }
 });
 
-router.post("/api/patients", async function ({ body: { Name, Address, Phone, GPDetails, DOB, MedicalHistory, Medications } }, res) {
+router.post("/api/patients", async function ({ body: { Name, Address, Phone, GPDetails, DOB, MedicalHistory, Medications, OrgID } }, res) {
     try {
         const dbPatient = await db.Patient.create({
             Name: Name,
@@ -93,7 +93,8 @@ router.post("/api/patients", async function ({ body: { Name, Address, Phone, GPD
             GPDetails: GPDetails,
             DOB: DOB,
             MedicalHistory: MedicalHistory,
-            Medications: Medications
+            Medications: Medications,
+            organisation_id: OrgID
         })
         res.json(dbPatient)
     }

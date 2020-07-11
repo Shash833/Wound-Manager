@@ -30,7 +30,7 @@ app.get("*", (req, res) => {
 // app.listen(PORT, () => {
 //   console.log(`🌎 ==> API server now on port ${PORT}!`);
 // });
-db.sequelize.sync({ force: true }).then(function () {
+db.sequelize.sync({ force: false }).then(function () {
   app.listen(PORT, function () {
     console.log("App listening on PORT " + PORT);
   });

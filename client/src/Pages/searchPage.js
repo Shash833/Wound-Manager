@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from 'react-router-dom'
 import Layout from "../Components/Layout"
 import Row from "../Components/Row"
 import Column from "../Components/Columns"
@@ -23,7 +24,7 @@ function SearchPage() {
         </Column>
 
         <Row>
-            <Button>Enter new patient</Button>
+            <Button><Link to="new_patient_form">Enter new patient</Link></Button>
         </Row>
     </Layout>
 }

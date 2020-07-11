@@ -12,6 +12,7 @@ import UserContextProvider from "./Context/AuthContext";
 import './App.css';
 import { PrivateRoute } from './Routes/PrivateRoute';
 import { PublicRoute } from './Routes/PublicRoute';
+import NewPatientForm from './Pages/newPatientForm';
 
 
 function App() {
@@ -27,6 +28,7 @@ function App() {
             <PrivateRoute exact path="/patient/:patientID" component={Patient} />
             <PrivateRoute exact path="/new-wound-entry" component={WoundEntry} />
             <PrivateRoute exact path="/wound/:id" component={WoundPage} />
+            <PrivateRoute exact path="/new_patient_form" component={NewPatientForm} />
           </Switch>
         </Wrapper>
       </Router >

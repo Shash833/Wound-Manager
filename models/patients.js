@@ -1,6 +1,13 @@
 module.exports = function (sequelize, DataTypes) {
     const Patient = sequelize.define("Patient", {
-        Name: {
+        FirstName: {
+            type: DataTypes.STRING,
+            allowNull: false,
+            validate: {
+                len: [1]
+            }
+        },
+        LastName: {
             type: DataTypes.STRING,
             allowNull: false,
             validate: {
@@ -49,18 +56,21 @@ module.exports = function (sequelize, DataTypes) {
                 len: [1]
             }
         }
-    });
+    },
+        {
+            timestamps: false
+        });
 
     Patient.associate = function (models) {
         Patient.hasMany(models.Wounds, {
             foreignKey: {
-                //patientID
+                wound_id
             }
         });
         Patient.belongsTo(models.Organisation, {
             foreignKey: {
-                allowNull: false
-                //orginisationID
+                allowNull: false,
+                organisation_id
             }
         });
     };
