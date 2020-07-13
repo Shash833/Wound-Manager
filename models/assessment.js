@@ -9,10 +9,14 @@ module.exports = function (sequelize, DataTypes) {
             allowNull: false,
         },
         Infection: {
-            type: DataTypes.STRING,
+            type: DataTypes.BOOLEAN,
             allowNull: false,
         },
         Odour: {
+            type: DataTypes.BOOLEAN,
+            allowNull: false,
+        },
+        Exudate: {
             type: DataTypes.STRING,
             allowNull: false,
         },

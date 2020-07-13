@@ -1,5 +1,5 @@
 import React from "react";
-import { DatePicker } from 'antd';
+import { DatePicker, Form } from 'antd';
 import moment from 'moment';
 
 const { RangePicker } = DatePicker;
@@ -9,8 +9,8 @@ const monthFormat = 'YYYY/MM';
 
 const dateFormatList = ['DD/MM/YYYY', 'DD/MM/YY'];
 
-function Date() {
-    return <DatePicker defaultValue={moment('01/01/2015', dateFormatList[0])} format={dateFormatList} />
+function Date({ label, onChange }) {
+    return <Form.Item label={label}><DatePicker onChange={onChange} defaultValue={moment('01/01/2015', dateFormatList[0])} format={dateFormatList} /></Form.Item>
 
 }
 

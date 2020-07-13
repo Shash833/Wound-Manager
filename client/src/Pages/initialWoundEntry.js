@@ -5,9 +5,8 @@ import Column from "../Components/Columns"
 import Form from "../Components/Form"
 import FormItem from "../Components/FormItem"
 import Card from "../Components/Card"
-// import Button from "../Components/Button"
-// import Select from "../Components/Select"
-// import DatePicker from "../Components/DatePicker"
+import Select from "../Components/Select"
+import DatePicker from "../Components/DatePicker"
 import { PatientContext } from "../Context/PatientContext";
 import axios from "axios"
 
@@ -18,6 +17,8 @@ function InitialWoundEntry() {
     const [Aetiology, setAetiology] = useState()
     const [DateDiscovered, setDate] = useState()
     const [AdditionalInfo, setInfo] = useState()
+
+    const aetiologyChoices = ["Vascluar", "Neurological", "Venous", "Pressure Injury", "Skin Tear", "Surgical"]
 
     const handleInput = async (event) => {
         try {
@@ -40,12 +41,11 @@ function InitialWoundEntry() {
                     <Form onClick={handleInput} link={"patient"}>
                         <FormItem label="Location:" value={Location} onChange={e => setLocation(e.target.value)}>
                         </FormItem>
-                        <FormItem label="Aetiology:" value={Aetiology} onChange={e => setAetiology(e.target.value)}>
-                        </FormItem>
-                        <FormItem label="Date discovered" value={DateDiscovered} onChange={e => setDate(e.target.value)}>
-                        </FormItem>
+                        {/* <FormItem label="Aetiology:" value={Aetiology} onChange={e => setAetiology(e.target.value)}>
+                        </FormItem> */}
+                        <Select label={"Aetiology"} array={aetiologyChoices} onClick={(e) => setAetiology(e)}></Select>
+                        <DatePicker label={"Date Discovered: "} onChange={(date, dateString) => setDate(dateString)}></DatePicker>
                         <FormItem label="Additional information:" value={AdditionalInfo} onChange={e => setInfo(e.target.value)}></FormItem>
-                        {/* <DatePicker ></DatePicker> */}
                     </Form>
                 </Card>
             </Column>

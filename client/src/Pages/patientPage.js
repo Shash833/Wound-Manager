@@ -31,7 +31,7 @@ function PatientPage() {
             <Column span={6}>
                 <Card title={"Patient details"}>
                     <ul>
-                        <li><b>Name:</b> {patient.FirstName}</li>
+                        <li><b>Name:</b> {patient.FirstName} {patient.LastName}</li>
                         <li><b>D.O.B: </b> {patient.DOB}</li>
                         <li><b>GP Details:</b> {patient.GPDetails}</li>
                         <li><b>Medical History:</b>{patient.MedicalHistory}</li>

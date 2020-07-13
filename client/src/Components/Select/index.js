@@ -5,14 +5,11 @@ const { Option } = Select;
 
 
 //use onChange={"function"} to select value
-function Dropdown({ label }) {
-    return <Form.Item label={label}>
-        <Select title={"Select Title"} defaultValue={label} style={{ width: 120 }} >
-            <Option value="jack">Jack</Option>
-            <Option value="lucy">Lucy</Option>
-            <Option value="disabled">Disabled</Option>
-            <Option value="Yiminghe">yiminghe</Option>
-        </Select></Form.Item>
+function Dropdown({ label, array, onClick }) {
+  return <Form.Item label={label}>
+    <Select title={"Select Title"} defaultValue={label} style={{ width: 120 }} onChange={onClick}>
+      {array.map((list) => (<Option key={list} value={list}>{list}</Option>))}
+    </Select></Form.Item>
 
 }
 

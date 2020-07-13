@@ -38,12 +38,6 @@ function WoundHistoryPage() {
     }, [])
 
 
-    useEffect(() => {
-        console.log(singleAssessment)
-    }, [singleAssessment])
-
-
-
     return <Layout>
         <Row>
             <Column span={10}>
@@ -75,8 +69,8 @@ function WoundHistoryPage() {
                             <ul>
                                 <li><b>Tissue Base:</b> {singleAssessment.TissueBase}</li>
                                 <li><b>Infection:</b> {singleAssessment.Infection} </li>
-                                <li><b>Odour:</b> {singleAssessment.Odour}</li>
-                                <li><b>Moisture:</b> {singleAssessment.Moisture} </li>
+                                <li><b>Odour:</b> {singleAssessment.Odour ? "Yes" : "No"}</li>
+                                <li><b>Moisture:</b> {singleAssessment.Moisture ? "Yes" : "No"} </li>
                                 <li><b>Edges:</b> {singleAssessment.Edges} </li>
                                 <a><b>Dimensions:</b></a>
                                 <li><b>Length: </b> {singleAssessment.Length}mm</li>

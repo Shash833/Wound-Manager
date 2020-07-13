@@ -4,6 +4,9 @@ import Column from "../Components/Columns"
 import Row from "../Components/Row"
 import Form from "../Components/Form"
 import FormItem from "../Components/FormItem"
+import Card from "../Components/Card"
+import DatePicker from "../Components/DatePicker"
+import Select from "../Components/Select"
 import axios from "axios";
 import { WoundContext } from "../Context/WoundContext"
 
@@ -15,6 +18,7 @@ function WoundAssessmentPage() {
     const [Tissue, setTissue] = useState()
     const [Infection, setInfection] = useState()
     const [Odour, setOdour] = useState()
+    const [Exudate, setExudate] = useState()
     const [Moisture, setMoisture] = useState()
     const [Edges, setEdges] = useState()
     const [Length, setLength] = useState()
@@ -28,6 +32,13 @@ function WoundAssessmentPage() {
     const [Additional, setAdditional] = useState()
 
     const [assessmentStatus, setStatus] = useState(false)
+
+    const booleanChoices = ["Yes", "No"]
+    const tissueArray = ["Granulation", "Slough", "Epithelialisation", "Hyper-Granulation", "Necrotic", "Eschar", "Bone"]
+    const moistureArray = ["Low", "Moderate", "High", "Nil"]
+    const exudateArray = ["Serous", "Heamoserous", "Purulent", "Bloody"]
+
+    const edgeArray = ["Healthy", "Macerated", "Tunnelling", "Undermined", "Inflammed", "Hyperkeratosis"]
 
     const assessmentComplete = async (event) => {
         event.preventDefault()
@@ -43,6 +54,7 @@ function WoundAssessmentPage() {
                 TissueBase: Tissue,
                 Infection: Infection,
                 Odour: Odour,
+                Exudate: Exudate,
                 Moisture: Moisture,
                 Edges: Edges,
                 Length: Length,
@@ -66,12 +78,14 @@ function WoundAssessmentPage() {
         <Row>
             <Column offset={8}>
                 <Form onClick={assessmentComplete}>
-                    <FormItem label={"Date:"} value={CurrentDate} onChange={e => setDate(e.target.value)} />
-                    <FormItem label={"Tissue Base:"} value={Tissue} onChange={e => setTissue(e.target.value)} />
-                    <FormItem label={"Infection:"} value={Infection} onChange={e => setInfection(e.target.value)} />
-                    <FormItem label={"Odour:"} value={Odour} onChange={e => setOdour(e.target.value)} />
-                    <FormItem label={"Moisture:"} value={Moisture} onChange={e => setMoisture(e.target.value)} />
-                    <FormItem label={"Edges:"} value={Edges} onChange={e => setEdges(e.target.value)} />
+                    <DatePicker label={"Date: "} onChange={(date, dateString) => setDate(dateString)} />
+                    <Select label={"Tissue Base:"} array={tissueArray} onClick={(e) => setTissue(e)}></Select>
+                    <Select label={"Infection"} array={booleanChoices} onClick={(e) => { if (e === "Yes") { setInfection(true) } else { setInfection(false) } }}></Select>
+                    <Select label={"Odour"} array={booleanChoices} onClick={(e) => { if (e === "Yes") { setOdour(true) } else { setOdour(false) } }}></Select>
+                    <Select label={"Exudate Type:"} array={exudateArray} onClick={e => setExudate(e)}></Select>
+                    <Select label={"Moisture Level:"} array={moistureArray} onClick={e => setMoisture(e)}></Select>
+                    <Select label={"Edges:"} array={edgeArray} onClick={e => setEdges(e)}></Select>
+                    <h4>Measurements: </h4>
                     <FormItem label={"Length(mm):"} value={Length} onChange={e => setLength(e.target.value)} />
                     <FormItem label={"Width(mm):"} value={Width} onChange={e => setWidth(e.target.value)} />
                     <FormItem label={"Depth(mm):"} value={Depth} onChange={e => setDepth(e.target.value)} />
@@ -80,11 +94,17 @@ function WoundAssessmentPage() {
         </Row>
 
         {assessmentStatus ? <><Row>
-            <h1>WOUND CARE RECOMMENDATIONS</h1>
+            <Card title={"WOUND CARE RECOMMENDATIONS"}>
+                <h3>Render Recommendations:</h3>
+
+            </Card>
         </Row>
+            <Row justify={"center"}>
+                <h2>Dressing Regime:</h2>
+            </Row>
             <Row>
                 <Column offset={8}>
-                    <Form onClick={handleInput} link={"/wound"}>
+                    <Form onClick={handleInput} link={"wound"}>
                         <FormItem label={"Cleanse:"} value={Cleanse} onChange={e => setCleanse(e.target.value)} />
                         <FormItem label={"Primary Dressing:"} value={Primary} onChange={e => setPrimary(e.target.value)} />
                         <FormItem label={"Secondary Dressing:"} value={Secondary} onChange={e => setSecondary(e.target.value)} />

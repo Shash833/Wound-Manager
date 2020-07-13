@@ -4,6 +4,7 @@ import Column from "../Components/Columns"
 import Row from "../Components/Row"
 import Form from "../Components/Form"
 import FormItem from "../Components/FormItem"
+import DatePicker from "../Components/DatePicker"
 import axios from "axios";
 
 import { UserContext } from '../Context/AuthContext'
@@ -50,7 +51,7 @@ function NewPatientForm() {
                 <Form onClick={handleInput} link={"home"}>
                     <FormItem label={"First Name:"} value={FirstName} onChange={e => setFirstName(e.target.value)} />
                     <FormItem label={"Last Name:"} value={LastName} onChange={e => setLastName(e.target.value)} />
-                    <FormItem label={"DOB:"} value={DOB} onChange={e => setDOB(e.target.value)} />
+                    <DatePicker label={"DOB: "} onChange={(date, dateString) => setDOB(dateString)} />
                     <FormItem label={"Address:"} value={Address} onChange={e => setAddress(e.target.value)} />
                     <FormItem label={"Contact Number:"} value={phone} onChange={e => setPhone(e.target.value)} />
                     <FormItem label={"GP Details:"} value={gpDetails} onChange={e => setGPDetails(e.target.value)} />

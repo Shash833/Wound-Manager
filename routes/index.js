@@ -159,13 +159,14 @@ router.get("/api/assessment/:id", async function (req, res) {
     catch (error) { console.log(error) }
 });
 
-router.post("/api/assessments", async function ({ body: { AssessmentDate, TissueBase, Infection, Odour, Moisture, Edges, Length, Width, Depth, Cleanse, Primary, Secondary, Fixation, AdditionalIntervention, WoundId } }, res) {
+router.post("/api/assessments", async function ({ body: { AssessmentDate, TissueBase, Infection, Odour, Exudate, Moisture, Edges, Length, Width, Depth, Cleanse, Primary, Secondary, Fixation, AdditionalIntervention, WoundId } }, res) {
     try {
         const dbAssessment = await db.Assessment.create({
             AssessmentDate: AssessmentDate,
             TissueBase: TissueBase,
             Infection: Infection,
             Odour: Odour,
+            Exudate: Exudate,
             Moisture: Moisture,
             Edges: Edges,
             Length: Length,
