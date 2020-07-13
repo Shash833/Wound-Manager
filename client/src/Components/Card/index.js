@@ -5,6 +5,7 @@ function Cards({ children, width, title }) {
     return <Card
         style={{ width: '100%' }}
         title={title}
+
     >{children}</Card>
 }
 export default Cards;

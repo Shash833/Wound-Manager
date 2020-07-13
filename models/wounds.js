@@ -15,7 +15,7 @@ module.exports = function (sequelize, DataTypes) {
             }
         },
         DateDiscovered: {
-            type: DataTypes.DATE,
+            type: DataTypes.STRING,
             allowNull: false,
             validate: {
                 len: [1]
@@ -28,20 +28,22 @@ module.exports = function (sequelize, DataTypes) {
                 len: [1]
             }
         }
-    });
+    },
+        {
+            timestamps: false
+        });
 
-    // Wounds.associate = function (models) {
-    //     Wounds.hasMany(models.Assessments, {
-    //         foreignKey: {
-    //             //woundID
-    //         }
-    //     });
-    //     Wounds.belongsTo(models.Patient, {
-    //         foreignKey: {
-    //             allowNull: false
-    //             //PatientID
-    //         }
-    //     });
-    // };
+    Wounds.associate = function (models) {
+        Wounds.hasMany(models.Assessment, {
+            foreignKey: {
+                allowNull: false
+            }
+        });
+        Wounds.belongsTo(models.Patient, {
+            foreignKey: {
+                allowNull: false
+            },
+        });
+    };
     return Wounds;
 };

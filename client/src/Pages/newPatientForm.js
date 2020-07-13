@@ -25,7 +25,7 @@ function NewPatientForm() {
             event.preventDefault()
             console.log("CONTEXT", user.dataValues.id)
             console.log("CONTEXT NAME", user.dataValues.username)
-            axios.post("/api/users", ({
+            axios.post("/api/patients", ({
                 FirstName: FirstName,
                 LastName: LastName,
                 Address: Address,
@@ -47,7 +47,7 @@ function NewPatientForm() {
         </Row>
         <Row>
             <Column offset={8}>
-                <Form onClick={handleInput}>
+                <Form onClick={handleInput} link={"home"}>
                     <FormItem label={"First Name:"} value={FirstName} onChange={e => setFirstName(e.target.value)} />
                     <FormItem label={"Last Name:"} value={LastName} onChange={e => setLastName(e.target.value)} />
                     <FormItem label={"DOB:"} value={DOB} onChange={e => setDOB(e.target.value)} />

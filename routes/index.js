@@ -1,16 +1,8 @@
 const db = require("../models");
 const router = require("express").Router();
 const passport = require("../config/passport");
-var isAuthenticated = require("../config/middleware/isAuthenticated");
-
 
 //USER API ROUTES:
-
-router.get("/home", isAuthenticated, function (req, res) {
-    res.redirect('/home');
-});
-
-
 router.get("/api/users", async function (req, res) {
     try {
         const dbUsers = await db.User.findAll({
@@ -60,11 +52,11 @@ router.post("/api/login", passport.authenticate("local"), async function (req, r
 });
 
 //PATIENT API ROUTES:
-router.get("/api/patients", async function (req, res) {
+router.get("/api/patients/:userID", async function (req, res) {
     try {
         const dbPatient = await db.Patient.findAll({
             where: {
-                //organisationID = logged in orginisationID
+                UserId: req.params.userID
             }
         })
         res.json(dbPatient)
@@ -72,29 +64,31 @@ router.get("/api/patients", async function (req, res) {
     catch (error) { console.log(error) }
 });
 
-router.get("/api/patients/:id", async function (req, res) {
-    try {
-        const dbPatient = await db.Patient.findOne({
-            where: {
-                id: req.params.id
-            }
-        })
-        res.json(dbPatient)
-    }
-    catch (error) { console.log(error) }
-});
+// router.get("/api/patients/:id", async function (req, res) {
+//     try {
+//         const dbPatient = await db.Patient.findOne({
+//             where: {
+//                 id: req.params.id
+//             }
+//         })
+//         res.json(dbPatient)
+//     }
+//     catch (error) { console.log(error) }
+// });
 
-router.post("/api/patients", async function ({ body: { Name, Address, Phone, GPDetails, DOB, MedicalHistory, Medications, OrgID } }, res) {
+router.post("/api/patients", async function ({ body: { FirstName, LastName, Address, Phone, GPDetails, DOB, MedicalHistory, Medications, OrgID } }, res) {
     try {
+        console.log("BODY", FirstName, LastName, Address, Phone, GPDetails, DOB, MedicalHistory, Medications, OrgID)
         const dbPatient = await db.Patient.create({
-            Name: Name,
+            FirstName: FirstName,
+            LastName: LastName,
             Address: Address,
             Phone: Phone,
             GPDetails: GPDetails,
             DOB: DOB,
             MedicalHistory: MedicalHistory,
             Medications: Medications,
-            organisation_id: OrgID
+            UserId: OrgID
         })
         res.json(dbPatient)
     }
@@ -116,9 +110,9 @@ router.get("/api/wounds", async function (req, res) {
 
 router.get("/api/wounds/:id", async function (req, res) {
     try {
-        const dbWound = await db.Wound.findOne({
+        const dbWound = await db.Wounds.findAll({
             where: {
-                id: req.params.id
+                PatientId: req.params.id
             }
         })
         res.json(dbWound)
@@ -126,13 +120,14 @@ router.get("/api/wounds/:id", async function (req, res) {
     catch (error) { console.log(error) }
 });
 
-router.post("/api/wounds", async function ({ body: { WoundLocation, Aetiology, DateDiscovered, AdditionalInfo } }, res) {
+router.post("/api/wounds", async function ({ body: { WoundLocation, Aetiology, DateDiscovered, AdditionalInfo, PatientId } }, res) {
     try {
-        const dbWound = await db.Wound.create({
+        const dbWound = await db.Wounds.create({
             WoundLocation: WoundLocation,
             Aetiology: Aetiology,
             DateDiscovered: DateDiscovered,
-            AdditionalInfo: AdditionalInfo
+            AdditionalInfo: AdditionalInfo,
+            PatientId: PatientId
         })
         res.json(dbWound)
     }
@@ -140,11 +135,11 @@ router.post("/api/wounds", async function ({ body: { WoundLocation, Aetiology, D
 })
 
 //ASSESSMENT API ROUTES:
-router.get("/api/assessments", async function (req, res) {
+router.get("/api/AllAssessments/:id", async function (req, res) {
     try {
         const dbAssessment = await db.Assessment.findAll({
             where: {
-                //woundID = current woundiD
+                WoundId: req.params.id
             }
         })
         res.json(dbAssessment)
@@ -152,7 +147,7 @@ router.get("/api/assessments", async function (req, res) {
     catch (error) { console.log(error) }
 });
 
-router.get("/api/assessments/:id", async function (req, res) {
+router.get("/api/assessment/:id", async function (req, res) {
     try {
         const dbAssessment = await db.Assessment.findOne({
             where: {
@@ -164,9 +159,10 @@ router.get("/api/assessments/:id", async function (req, res) {
     catch (error) { console.log(error) }
 });
 
-router.post("/api/assessments", async function ({ body: { TissueBase, Infection, Odour, Moisture, Edges, Length, Width, Depth } }, res) {
+router.post("/api/assessments", async function ({ body: { AssessmentDate, TissueBase, Infection, Odour, Moisture, Edges, Length, Width, Depth, Cleanse, Primary, Secondary, Fixation, AdditionalIntervention, WoundId } }, res) {
     try {
         const dbAssessment = await db.Assessment.create({
+            AssessmentDate: AssessmentDate,
             TissueBase: TissueBase,
             Infection: Infection,
             Odour: Odour,
@@ -174,51 +170,57 @@ router.post("/api/assessments", async function ({ body: { TissueBase, Infection,
             Edges: Edges,
             Length: Length,
             Width: Width,
-            Depth: Depth
+            Depth: Depth,
+            Cleanse: Cleanse,
+            Primary: Primary,
+            Secondary: Secondary,
+            Fixation: Fixation,
+            AdditionalIntervention: AdditionalIntervention,
+            WoundId: WoundId
         })
         res.json(dbAssessment);
     }
     catch (error) { console.log(error) }
 })
 
-//REGIMEN API ROUTES: 
-router.get("/api/regimen", async function (req, res) {
-    try {
-        const dbRegimen = await db.Regimen.findAll({
-            where: {
-                //assessmentID = current assessmentID
-            }
-        })
-        res.json(dbRegimen);
-    }
-    catch (error) { console.log(error) }
-});
+// //REGIMEN API ROUTES: 
+// router.get("/api/regimen", async function (req, res) {
+//     try {
+//         const dbRegimen = await db.Regimen.findAll({
+//             where: {
+//                 //assessmentID = current assessmentID
+//             }
+//         })
+//         res.json(dbRegimen);
+//     }
+//     catch (error) { console.log(error) }
+// });
 
-router.get("/api/regimen/:id", async function (req, res) {
-    try {
-        const dbRegimen = await db.Regimen.findOne({
-            where: {
-                id: req.params.id
-            }
-        })
-        res.json(dbRegimen)
-    }
-    catch (error) { console.log(error) }
-});
+// router.get("/api/regimen/:id", async function (req, res) {
+//     try {
+//         const dbRegimen = await db.Regimen.findOne({
+//             where: {
+//                 id: req.params.id
+//             }
+//         })
+//         res.json(dbRegimen)
+//     }
+//     catch (error) { console.log(error) }
+// });
 
-router.post("/api/regimen", async function ({ body: { Cleanse, Primary, Secondary, Fixation, AdditionalIntervention } }, res) {
-    try {
-        const dbRegimen = await db.Regimen.create({
-            Cleanse: Cleanse,
-            Primary: Primary,
-            Secondary: Secondary,
-            Fixation: Fixation,
-            AdditionalIntervention: AdditionalIntervention
-        })
-        res.json(dbRegimen)
-    }
-    catch (error) { console.log(error) }
-})
+// router.post("/api/regimen", async function ({ body: { Cleanse, Primary, Secondary, Fixation, AdditionalIntervention } }, res) {
+//     try {
+//         const dbRegimen = await db.Regimen.create({
+//             Cleanse: Cleanse,
+//             Primary: Primary,
+//             Secondary: Secondary,
+//             Fixation: Fixation,
+//             AdditionalIntervention: AdditionalIntervention
+//         })
+//         res.json(dbRegimen)
+//     }
+//     catch (error) { console.log(error) }
+// })
 
 router.get("/api/user_data", async function (req, res) {
     try {

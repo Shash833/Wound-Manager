@@ -24,9 +24,6 @@ module.exports = function (sequelize, DataTypes) {
         Phone: {
             type: DataTypes.INTEGER,
             allowNull: false,
-            validate: {
-                len: [1]
-            }
         },
         GPDetails: {
             type: DataTypes.STRING,
@@ -64,15 +61,14 @@ module.exports = function (sequelize, DataTypes) {
     Patient.associate = function (models) {
         Patient.hasMany(models.Wounds, {
             foreignKey: {
-                wound_id
-            }
-        });
-        Patient.belongsTo(models.Organisation, {
+                allowNull: false,
+            },
+        })
+        Patient.belongsTo(models.User, {
             foreignKey: {
                 allowNull: false,
-                organisation_id
-            }
-        });
+            },
+        })
     };
     return Patient;
 };

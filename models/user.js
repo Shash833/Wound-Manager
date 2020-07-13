@@ -46,8 +46,8 @@ module.exports = function (sequelize, DataTypes) {
     User.associate = function (models) {
         User.hasMany(models.Patient, {
             foreignKey: {
-                //userID
-            }
+                allowNull: false,
+            },
         });
     };
     User.prototype.validPassword = function (Password) {
