@@ -22,7 +22,7 @@ module.exports = function (sequelize, DataTypes) {
             }
         },
         Phone: {
-            type: DataTypes.INTEGER,
+            type: DataTypes.STRING,
             allowNull: false,
         },
         GPDetails: {
@@ -33,7 +33,7 @@ module.exports = function (sequelize, DataTypes) {
             }
         },
         DOB: {
-            type: DataTypes.DATE,
+            type: DataTypes.STRING,
             allowNull: false,
             validate: {
                 len: [1]

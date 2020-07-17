@@ -77,13 +77,13 @@ router.get("/api/patients/:userID", async function (req, res) {
 // });
 
 router.post("/api/patients", async function ({ body: { FirstName, LastName, Address, Phone, GPDetails, DOB, MedicalHistory, Medications, OrgID } }, res) {
+    console.log(FirstName, LastName, Address, Phone, GPDetails, DOB, MedicalHistory, Medications, OrgID)
     try {
-        console.log("BODY", FirstName, LastName, Address, Phone, GPDetails, DOB, MedicalHistory, Medications, OrgID)
         const dbPatient = await db.Patient.create({
             FirstName: FirstName,
             LastName: LastName,
             Address: Address,
-            Phone: Phone,
+            Phone: +Phone,
             GPDetails: GPDetails,
             DOB: DOB,
             MedicalHistory: MedicalHistory,

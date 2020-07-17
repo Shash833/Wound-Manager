@@ -1,0 +1,35 @@
+{
+    "Tissue": {
+        "Granulation": "Maintaining granulation wound base advice...",
+        "Slough": "Slough management advice...",
+        "Epithelialisation": "Epithelialisation maintenence advice...",
+        "Hyper-Granulation": "Hypergranulation management advice... ",
+        "Necrotic": "Necrotic wound management advice...",
+        "Eschar": "Eschar management...",
+        "Bone": "Exposed bone management..."
+    },
+    "Moisture": {
+        "Low": "Low exudate goals",
+        "Moderate": "Moderate exudate goals",
+        "High": "High exudate goals",
+        "Nil": "Dry wound management goals"
+    },
+    "Exudate": {
+        "Serous": "Serous discharge",
+        "Heamoserous": {},
+        "Purulent": {},
+        "Bloody": {}
+    },
+    "Infection": {
+        "Yes": "Infection management advice",
+        "No": "(nil infection)"
+    },
+    "Edges": {
+        "Healthy": "Healthy edges advice",
+        "Macerated": "Healthy edges advice",
+        "Tunnelling": "Healthy edges advice",
+        "Undermined": "Healthy edges advice",
+        "Inflammed": "Healthy edges advice",
+        "Hyperkeratosis": "Healthy edges advice"
+    }
+}

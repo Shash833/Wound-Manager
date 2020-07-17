@@ -10,7 +10,7 @@ const monthFormat = 'YYYY/MM';
 const dateFormatList = ['DD/MM/YYYY', 'DD/MM/YY'];
 
 function Date({ label, onChange }) {
-    return <Form.Item label={label}><DatePicker onChange={onChange} defaultValue={moment('01/01/2015', dateFormatList[0])} format={dateFormatList} /></Form.Item>
+    return <Form.Item label={label}><DatePicker onChange={onChange} format={dateFormatList} /></Form.Item>
 
 }
 

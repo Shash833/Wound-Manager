@@ -1,0 +1,92 @@
+[
+    {
+        "Name": "Iodosorb",
+        "Tissue": {
+            "Granulation": true,
+            "Slough": true,
+            "Epithelialisation": true,
+            "Hyper-Granulation": true,
+            "Necrotic": true,
+            "Eschar": true,
+            "Bone": false
+        },
+        "Moisture": {
+            "Low": true,
+            "Moderate": true,
+            "High": false,
+            "Nil": true
+        },
+        "Infection": {
+            "Yes": true,
+            "No": false
+        },
+        "Edges": {
+            "Healthy": true,
+            "Macerated": false,
+            "Tunnelling": false,
+            "Undermined": true,
+            "Inflammed": true,
+            "Hyperkeratosis": true
+        }
+    },
+    {
+        "Name": "Iodosorb Powder",
+        "Tissue": {
+            "Granulation": true,
+            "Slough": true,
+            "Epithelialisation": true,
+            "Hyper-Granulation": true,
+            "Necrotic": true,
+            "Eschar": true,
+            "Bone": false
+        },
+        "Moisture": {
+            "Low": false,
+            "Moderate": true,
+            "High": true,
+            "Nil": false
+        },
+        "Infection": {
+            "Yes": true,
+            "No": false
+        },
+        "Edges": {
+            "Healthy": true,
+            "Macerated": true,
+            "Tunnelling": false,
+            "Undermined": true,
+            "Inflammed": true,
+            "Hyperkeratosis": true
+        }
+    },
+    {
+        "Name": "Durafiber",
+        "Tissue": {
+            "Granulation": true,
+            "Slough": true,
+            "Epithelialisation": true,
+            "Hyper-Granulation": true,
+            "Necrotic": false,
+            "Eschar": false,
+            "Bone": false
+        },
+        "Moisture": {
+            "Low": false,
+            "Moderate": true,
+            "High": true,
+            "Nil": false
+        },
+        "Infection": {
+            "Yes": false,
+            "No": true
+        },
+        "Edges": {
+            "Healthy": true,
+            "Macerated": true,
+            "Tunnelling": true,
+            "Undermined": true,
+            "Inflammed": false,
+            "Hyperkeratosis": true
+        }
+    }
+]

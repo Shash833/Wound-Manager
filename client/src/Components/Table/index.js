@@ -21,7 +21,7 @@ function Tables({ data }) {
         <Column title="Location" dataIndex="WoundLocation" key="WoundLocation" />
         <Column title="Date" dataIndex="DateDiscovered" key="DateDiscovered" />
         <Column
-            title="Action"
+            title="Select Wound to review and update treatment history"
             key="action"
             render={(text, record) => (
                 <Space size="middle" key={data.id}>

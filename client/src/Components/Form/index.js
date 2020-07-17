@@ -2,9 +2,9 @@ import React from "react";
 import { Link } from 'react-router-dom'
 import { Form, Button } from 'antd'
 
-function Forms({ onClick, link, children }) {
+function Forms({ onClick, link, children, labelSpan }) {
     const layout = {
-        labelCol: { span: 10 },
+        labelCol: { span: `${labelSpan}` },
     };
     const tailLayout = {
         wrapperCol: { offset: 8, span: 16 },
