@@ -20,7 +20,6 @@ function RegistrationForm() {
     const handleInput = async (event) => {
         try {
             event.preventDefault()
-            console.log({ userName, address, accountHolder, contactNumber, password })
             axios.post("/api/users", ({
                 username: userName,
                 Password: password,
