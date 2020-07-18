@@ -20,8 +20,8 @@ The application has been deployed on Heroku: https://lit-reaches-59072.herokuapp
 
 ## Preview:
 
-![patient page](assets/patient-page.png)
+![patient page](assets/patient-page.PNG)
 
-![assessment-history](assets/assessment-history.png)
+![assessment-history](assets/assessment-history.PNG)
 
-![assessment-page](assets/assessment-page.png)
+![assessment-page](assets/assessment-page.PNG)
