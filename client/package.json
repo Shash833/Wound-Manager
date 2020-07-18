@@ -6,6 +6,8 @@
   "proxy": "http://localhost:3001/",
   "dependencies": {
     "antd": "^4.4.1",
+    "bulma": "^0.9.0",
+    "bulma-calendar": "^6.0.9",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-modal": "^3.11.2",

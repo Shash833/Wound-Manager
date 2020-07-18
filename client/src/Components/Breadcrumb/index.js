@@ -1,18 +1,14 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { Breadcrumb } from 'antd';
-
 
 function Breadcrumbs({ navArray }) {
 
-    return <Breadcrumb separator=">" style={{ margin: '16px 0' }}>
-        <Breadcrumb.Item><Link to="/home">Home</Link></Breadcrumb.Item>
-        {navArray.map(({ label, link }) => (
-            <Breadcrumb.Item key={label}>
-                <Link to={link}>{label}</Link>
-            </Breadcrumb.Item>
-        ))}
-    </Breadcrumb>
+    return <div className="breadcrumb has-succeeds-separator is-small" aria-label="breadcrumbs">
+        <ul>
+            <li><Link to="/home">Home</Link></li>
+            {navArray.map(({ label, link }) => (<li key={label}><Link className="link" to={link}>{label}</Link></li>))}
+        </ul>
+    </div>
 }
 
 export default Breadcrumbs

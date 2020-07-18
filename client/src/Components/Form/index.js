@@ -1,22 +1,7 @@
 import React from "react";
-import { Link } from 'react-router-dom'
-import { Form, Button } from 'antd'
 
-function Forms({ onClick, link, children, labelSpan }) {
-    const layout = {
-        labelCol: { span: `${labelSpan}` },
-    };
-    const tailLayout = {
-        wrapperCol: { offset: 8, span: 16 },
-    };
-    return <Form {...layout} style={{ width: '100%' }}>
-        {children}
 
-        <Form.Item {...tailLayout}>
-            <Button type="primary" htmlType="submit" onClick={onClick}><Link to={link}> Submit</Link>
-            </Button>
-        </Form.Item>
-    </Form>
+function Forms({ children }) {
+    return <form className="field">{children}</form>
 }
-
 export default Forms;

@@ -23,7 +23,7 @@ function NewPatientForm(props) {
     const [medHistory, setMedHistory] = useState()
     const [medication, setMedication] = useState()
 
-    //Context with ligged in user details:
+    //Context with logged in user details:
     const { user } = useContext(UserContext)
 
 
@@ -48,35 +48,29 @@ function NewPatientForm(props) {
         catch (error) { console.log(error) }
     }
 
-
-
-
-    return <Layout>
-        <Breadcrumb navArray={[{ label: `New patient registration:`, link: "/new_patient_form" }]}></Breadcrumb>
-        <Row justify={'center'}>
-            <h1>Enter New Patient Details:</h1>
-        </Row>
-        <Row justify={'center'}>
-            <Column>
-                <Card>
-                    <Form onClick={(!FirstName || !LastName || !DOB || !Address || !phone || !gpDetails || !medHistory || !medication) ? false : handleInput} link={(!FirstName || !LastName || !DOB || !Address || !phone || !gpDetails || !medHistory || !medication) ? false : "home"}>
-                        <FormItem label={"First Name:"} value={FirstName} onChange={e => setFirstName(e.target.value)} />
-                        <FormItem label={"Last Name:"} value={LastName} onChange={e => setLastName(e.target.value)} />
-                        <DatePicker label={"DOB: "} onChange={(date, dateString) => setDOB(dateString)} />
-                        <FormItem label={"Address:"} value={Address} onChange={e => setAddress(e.target.value)} />
-                        <FormItem label={"Contact Number:"} value={phone} onChange={e => setPhone(e.target.value)} />
-                        <FormItem label={"GP Details:"} value={gpDetails} onChange={e => setGPDetails(e.target.value)} />
-                        <FormItem label={"Medical History:"} value={medHistory} onChange={e => setMedHistory(e.target.value)} />
-                        <FormItem label={"Current Medications:"} value={medication} onChange={e => setMedication(e.target.value)} />
-                    </Form>
-                    <Row justify={'center'}>
-                        <Button onClick={(!FirstName || !LastName || !DOB || !Address || !phone || !gpDetails || !medHistory || !medication) ? false : handleInput} link={(!FirstName || !LastName || !DOB || !Address || !phone || !gpDetails || !medHistory || !medication) ? false : "home"}>Enter new patient</Button>
-                    </Row>
-                </Card>
-            </Column>
-
-        </Row>
-    </Layout>
+    return <>
+        <Breadcrumb navArray={[{ label: `New patient registration:`, link: "/new_patient_form" }]}></Breadcrumb><Layout>
+            <Row>
+                <Column size={"is-three-fifths is-offset-one-fifth"}>
+                    <Card title="Register new patient:">
+                        <Form>
+                            <FormItem label={"First Name:"} value={FirstName} onChange={e => setFirstName(e.target.value)} />
+                            <FormItem label={"Last Name:"} value={LastName} onChange={e => setLastName(e.target.value)} />
+                            <DatePicker label={"DOB: "} onChange={(date, dateString) => setDOB(dateString)} />
+                            <FormItem label={"Address:"} value={Address} onChange={e => setAddress(e.target.value)} />
+                            <FormItem label={"Contact Number:"} value={phone} onChange={e => setPhone(e.target.value)} />
+                            <FormItem label={"GP Details:"} value={gpDetails} onChange={e => setGPDetails(e.target.value)} />
+                            <FormItem label={"Medical History:"} value={medHistory} onChange={e => setMedHistory(e.target.value)} />
+                            <FormItem label={"Current Medications:"} value={medication} onChange={e => setMedication(e.target.value)} />
+                        </Form>
+                        <Row>
+                            <Button onClick={(!FirstName || !LastName || !DOB || !Address || !phone || !gpDetails || !medHistory || !medication) ? false : handleInput} link={(!FirstName || !LastName || !DOB || !Address || !phone || !gpDetails || !medHistory || !medication) ? false : "home"}>Enter new patient</Button>
+                        </Row>
+                    </Card>
+                </Column>
+            </Row>
+        </Layout>
+    </>
 }
 
 export default NewPatientForm;

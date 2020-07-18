@@ -13,43 +13,56 @@ import NewPatient from "../Pages/newPatientForm"
 
 
 function SearchPage() {
+    //Logged in user context
     const { user } = useContext(UserContext)
-
+    //Modal state
     const [isOpen, setIsOpen] = useState(false)
-    const [searchResults, setResults] = useState([])
-
-    useEffect(() => {
-        async function searchPatients() {
-            try {
-                const { data } = await axios.get(`/api/patients/${user.dataValues.id}`)
-                setResults(data)
-            }
-            catch (error) { console.log(error) }
+    //State to store retrieved patients
+    const [Patients, setPatients] = useState([])
+    //State to store search input
+    const [search, setSearch] = useState()
+    //Function to retrieve patients from DB
+    async function retrievePatients() {
+        try {
+            const { data } = await axios.get(`/api/patients/${user.dataValues.id}`)
+            const sortedList = await data.sort((a, b) => (a.LastName > b.LastName) ? 1 : -1)
+            setPatients(sortedList)
+            return sortedList
         }
-        searchPatients()
+        catch (error) { console.log(error) }
+    }
+    //Retrieve patients on loading of page
+    useEffect(() => {
+        retrievePatients()
     }, [])
+    //Patient search function:
+    async function searchPatient() {
+        try {
+            await retrievePatients()
+            const result = await Patients.filter((patient) => patient.LastName === search)
+            if (result.length) { setPatients(result) }
+            else return
+        }
+        catch (error) { console.log(error) }
+    }
 
-    return (<><Layout>
-        <Breadcrumb navArray={[{}]}></Breadcrumb>
-        <Row>
-            <h2>Welcome, {user.dataValues.username}!</h2>
-        </Row>
-        <Row justify={'center'} style={{ padding: '50px' }}>
-            <Column span={20}>
-                <Row gutter={4}>
-                    <Column span={18}><Search placeholder={'Search by last name'}></Search></Column>
-                    <Column span={6}>  <Button onClick={() => setIsOpen(true)}>Enter new patient</Button></Column>
-                </Row>
-            </Column>
-        </Row >
-        <Row justify={"center"}>
-            <Column span={20}>
-                <PatientTable data={searchResults}></PatientTable>
-            </Column>
-        </Row>
-    </Layout>
+    return (<><Breadcrumb navArray={[{}]}></Breadcrumb>
+        <Layout>
+            <Row>
+                <h2>{user.dataValues.username} wound management tool.</h2>
+            </Row>
+            <Row>
+                <Column size={"is-10"}><Search placeholder={'Search for patient by surname'} onChange={e => setSearch(e.target.value)} onSearch={searchPatient}></Search></Column>
+                <Column size={"is-2"}>  <Button onClick={() => setIsOpen(true)}>Enter new patient</Button></Column>
+            </Row>
+            <Row>
+                <Column>
+                    <PatientTable data={Patients}></PatientTable>
+                </Column>
+            </Row>
+        </Layout>
         <Modal isOpen={isOpen} onRequestClose={() => setIsOpen(false)}>
-            <NewPatient addPatient={(value) => setResults([value, ...searchResults])} close={() => setIsOpen(false)} />
+            <NewPatient addPatient={(value) => setPatients([value, ...Patients])} close={() => setIsOpen(false)} />
         </Modal>
     </>)
 }

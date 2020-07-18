@@ -12,7 +12,6 @@ function Tables({ data }) {
     async function selectWound(data) {
         try {
             setWound(data)
-            console.log("WOUND CONTEXT", data)
         }
         catch (error) { console.log(error) }
     }
@@ -30,7 +29,6 @@ function Tables({ data }) {
             )}
         />
     </Table>
-
 }
 
 export default Tables;

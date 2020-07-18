@@ -20,8 +20,8 @@ function PatientPage() {
     //Context with selected patient info:
     const { patient } = useContext(PatientContext)
 
+    //For modal:
     const [isOpen, setIsOpen] = useState(false)
-
 
     //UseEffect to call above function on page load
     useEffect(() => {
@@ -36,44 +36,40 @@ function PatientPage() {
         getWounds()
     }, [])
 
-    return (<><Layout>
-        <Breadcrumb navArray={[{ label: `Patient: ${patient.FirstName} ${patient.LastName}`, link: "/patient" }]}></Breadcrumb>
-        <Row gutter={20}>
-            <Column span={6}>
-                <Card title={"Patient details"} >
-                    <p><b>Name: </b> {patient.FirstName} {patient.LastName}</p>
-                    <Divider />
-                    <p><b>D.O.B: </b> {patient.DOB}</p>
-                    <Divider />
-                    <p><b>GP Details: </b> {patient.GPDetails}</p>
-                    <Divider />
-                    <p><b>Medical History:</b></p>
-                    <br></br>
-                    <p>{patient.MedicalHistory}</p>
-                    <Divider />
-                    <p><b>Current Medication:</b></p>
-                    <br></br>
-                    <p>{patient.Medications}</p>
-                </Card>
-            </Column>
-            <Column span={18}>
-                <Row>
-                </Row>
-                <Row>
+    return (<><Breadcrumb navArray={[{ label: `Patient: ${patient.FirstName} ${patient.LastName}`, link: "/patient" }]}></Breadcrumb>
+        <Layout>
+            <Row>
+                <Column size={"is-4"}>
+                    <Card title={"Patient details"} >
+                        <p><b>Name: </b> {patient.FirstName} {patient.LastName}</p>
+                        <Divider />
+                        <p><b>D.O.B: </b> {patient.DOB}</p>
+                        <Divider />
+                        <p><b>GP Details: </b> {patient.GPDetails}</p>
+                        <Divider />
+                        <p><b>Medical History:</b></p>
+                        <br></br>
+                        <p>{patient.MedicalHistory}</p>
+                        <Divider />
+                        <p><b>Medications:</b></p>
+                        <br></br>
+                        <p>{patient.Medications}</p>
+                    </Card>
+                </Column>
+                <Column size={"is-8"}>
                     <Card title={`${patient.FirstName} ${patient.LastName}'s wound records:`}>
                         <Row>
-                            <Column offset={19}>
+                            <Column>
                                 <Button onClick={() => setIsOpen(true)}>Add new wound</Button>
                             </Column>
                         </Row>
                         {Wounds.length ?
-                            <Table data={Wounds} ></Table> :
+                            <Table data={Wounds} /> :
                             <div><i>{`There are currently no wound records for ${patient.FirstName}.`}</i></div>}
                     </Card>
-                </Row>
-            </Column>
-        </Row>
-    </Layout>
+                </Column>
+            </Row>
+        </Layout>
         <Modal isOpen={isOpen} onRequestClose={() => setIsOpen(false)}>
             <NewWound addWound={(value) => setWounds([value, ...Wounds])} close={() => setIsOpen(false)} />
         </Modal>

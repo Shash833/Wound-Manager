@@ -1,10 +1,9 @@
 import React from "react";
-import { Col } from 'antd'
 
-function Column({ children, span, className, offset }) {
-    return <Col className={className} span={span} offset={offset}>
+function Column({ children, size }) {
+    return <div className={`column ${size}`}>
         {children}
-    </Col>
+    </div>
 }
 
 export default Column;

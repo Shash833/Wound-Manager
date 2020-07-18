@@ -1,11 +1,9 @@
 import React from "react";
-import { Card } from 'antd';
 
-function Cards({ children, width, title }) {
-    return <Card
-        style={{ width: '100%' }}
-        title={title}
-
-    >{children}</Card>
+function Cards({ title, children, id }) {
+    return <div className="card" id={id}>
+        <p className="title is-4">{title}</p>
+        {children}
+    </div>
 }
 export default Cards;

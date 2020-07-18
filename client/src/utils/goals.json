@@ -1,35 +1,28 @@
 {
     "Tissue": {
-        "Granulation": "Maintaining granulation wound base advice...",
-        "Slough": "Slough management advice...",
-        "Epithelialisation": "Epithelialisation maintenence advice...",
-        "Hyper-Granulation": "Hypergranulation management advice... ",
-        "Necrotic": "Necrotic wound management advice...",
-        "Eschar": "Eschar management...",
-        "Bone": "Exposed bone management..."
+        "Granulation": "When the wound bed has healthy granulation tissue, treatment goals should aim to maintain granulation and promote epithelialisation. Consider use of dressings which maintain adequate moisture levels to help ",
+        "Slough": "When slough is present on the wound bed, treatment should aim towards debridement of the non-viable tissue to promote granulation. This can be carried out through the use of dressings which promote autolytic debridement or conservative sharps debridement.",
+        "Epithelialisation": "When epithelialisation tissue is present, treatment goals should aim to protect and maintain this. Consider the use of protective and low adherant dressings.",
+        "Necrotic": "When necrotic tissue is present in the wound base, dressing goals should aim toward debridement of non-viable tissue. If the wound is present on the lower limb, it is crucial to first investigate vascular supply before any form of debridement is carried out (if vascular insufficiency is detected, use a dry dressing refer to a vascular specialist). If suitable for debridement, consider the use of dressings which promote autolytic debridement.",
+        "Eschar": "When eschar is present on the wound base, treatment goals should aim toward debridement of non-viable tissue. Consider dressings which promote autolytic debridement",
+        "Bone": "When exposed bone is present, referral to a vascular or orthopeadic specialist is crucial. "
     },
     "Moisture": {
-        "Low": "Low exudate goals",
-        "Moderate": "Moderate exudate goals",
-        "High": "High exudate goals",
-        "Nil": "Dry wound management goals"
-    },
-    "Exudate": {
-        "Serous": "Serous discharge",
-        "Heamoserous": {},
-        "Purulent": {},
-        "Bloody": {}
+        "Low": "When there is a low level of exudate, aim to maintain moisture levels by considering the use of dressings which hydrate the wound bed.",
+        "Moderate": "When there is a moderate level of exudate, aim to maintain moisture levels by considering the use of dressings which hydrate the wound bed.",
+        "High": "When a high level of exudate is present, aim to control this to protect surrounding tissue. Consider the use of highly absorbant dressings.",
+        "Nil": "When the wound base is dry, if it is appropriate to do so, consider the use of dressings which hydrate the wound to promote autolytic debridement. In the case of ischeamic wounds of the lower limb, please consider the patient's vascular status first."
     },
     "Infection": {
-        "Yes": "Infection management advice",
-        "No": "(nil infection)"
+        "Yes": "In the presence of clinical signs of infection, please consider the use of antimicrobial dressings to to help control any local infection. Monitor for signs of systemic infection",
+        "No": "If no clinical signs of infection are present, the use of antimicrobial dressings are not required unless clinically indicated."
     },
     "Edges": {
-        "Healthy": "Healthy edges advice",
-        "Macerated": "Healthy edges advice",
-        "Tunnelling": "Healthy edges advice",
-        "Undermined": "Healthy edges advice",
-        "Inflammed": "Healthy edges advice",
-        "Hyperkeratosis": "Healthy edges advice"
+        "Healthy": "",
+        "Macerated": "When macerated edges are present, wound moisture levels need to be controlled to protect surrounding tissue. Consider the use of highly absorbant dressings or avoid dressings which donate moisture to the wound. More frequent dressing changes may also need to be considered.",
+        "Tunnelling": "Wounds with tunnelling present may require dressings which are able to be back to ensure close contact between wound and dressing.",
+        "Undermined": "",
+        "Inflammed": "",
+        "Hyperkeratosis": "In plantar wounds with hyperkeratosis, referral to a podiatrist for sharps debridement will be required to promote wound healing. As hyperkeratosis may indicate increased pressure to the wound site, effective offloading measures will need to be considered."
     }
 }

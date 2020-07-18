@@ -1,11 +1,16 @@
 import React from 'react'
-import { Input } from 'antd';
 
-const { Search } = Input;
+function SearchBox({ placeholder, onSearch, onChange }) {
 
-function SearchBox({ placeholder, onSearch, children }) {
-
-    return <Search placeholder={placeholder} onSearch={onSearch} enterButton />
+    return <div className="field has-addons">
+        <div className="control searchBox">
+            <input className="input" type="text" placeholder={placeholder} onSubmit={onSearch} onChange={onChange} />
+        </div>
+        <div className="control searchBox">
+            <a className="button is-info" onClick={onSearch}>
+                Search</a>
+        </div>
+    </div>
 }
 
 export default SearchBox

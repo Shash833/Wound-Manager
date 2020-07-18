@@ -23,7 +23,7 @@ function WoundHistoryPage() {
     const [assessmentList, setList] = useState([])
     const [singleAssessment, setAssessment] = useState({})
 
-    //
+    //Function to retreive patient assessments from DB:
     async function loadAssessments() {
         try {
             const { data } = await axios.get(`/api/AllAssessments/${Wound.id}`)
@@ -31,7 +31,7 @@ function WoundHistoryPage() {
         }
         catch (error) { console.log(error) }
     }
-
+    //To retrieve one assessment:
     async function oneAssessment(id) {
         try {
             const { data } = await axios.get(`/api/assessment/${id}`)
@@ -39,72 +39,74 @@ function WoundHistoryPage() {
         }
         catch (error) { console.log(error) }
     }
-
+    //Load all assessments when page loads:
     useEffect(() => {
         loadAssessments()
     }, [])
 
 
-    return <Layout>
+    return <>
         <Breadcrumb navArray={[{ label: `Patient: ${patient.FirstName} ${patient.LastName}`, link: "/patient" }, { label: `Wound: ${Wound.WoundLocation}(${Wound.DateDiscovered})`, link: "/wound" }]}></Breadcrumb>
-        <Row gutter={20}>
-            <Column span={10}>
-                <Row>
-                    <Card title={"Wound details:"}>
-                        <p><b>Wound Location: </b>{Wound.WoundLocation}</p>
-                        <Divider />
-                        <p><b>Date Discovered: </b>{Wound.DateDiscovered}</p>
-                        <Divider />
-                        <p><b>Aetiology: </b>{Wound.Aetiology}</p>
-                        <Divider />
-                        <p><b>Additional Information/Assessments: </b>{Wound.AdditionalInfo}</p>
-                    </Card>
-                </Row>
-                <Card title={"Assessment History:"}>
-                    {assessmentList.length ?
-                        <List>
-                            {assessmentList.map(({ AssessmentDate, id }) => (
-                                <ListItem key={id}>
-                                    <Button onClick={() => oneAssessment(id)} ><p><b>Review Date:</b> {AssessmentDate} </p></Button>
-                                </ListItem>
-                            ))}
-                        </List>
-                        : <div><i>No wound assessments currently in this record.</i></div>}
+        <Layout>
+            <Row>
+                <Column size={"is-5"}>
+                    <Row>
+                        <Card title={"Wound details:"}>
+                            <p><b>Wound Location: </b>{Wound.WoundLocation}</p>
+                            <Divider />
+                            <p><b>Date Discovered: </b>{Wound.DateDiscovered}</p>
+                            <Divider />
+                            <p><b>Aetiology: </b>{Wound.Aetiology}</p>
+                            <Divider />
+                            <p><b>Additional Information/Assessments: </b>{Wound.AdditionalInfo}</p>
+                        </Card>
+                    </Row>
+                    <Row>
+                        <Card title={"Assessment History:"}>
+                            {assessmentList.length ?
+                                <List>
+                                    {assessmentList.map(({ AssessmentDate, id }) => (
+                                        <ListItem key={id}>
+                                            <Button onClick={() => oneAssessment(id)} ><p><b>Review Date:</b> {AssessmentDate} </p></Button>
+                                        </ListItem>
+                                    ))}
+                                </List>
+                                : <div><i>No wound assessments currently in this record.</i></div>}
 
-                </Card>
-            </Column>
-            <Column span={14}>
-                <Button link={"/wound_assessment"}>Enter New Assessment</Button>
-                <Row>
-                    {singleAssessment.id ?
-                        (<Card title={`Wound review (${singleAssessment.AssessmentDate})`}>
-                            <h3>Assessment Details:</h3>
-                            <ul>
-                                <li><b>Tissue Base:</b> {singleAssessment.TissueBase}</li>
-                                <li><b>Infection:</b> {singleAssessment.Infection} </li>
-                                <li><b>Odour:</b> {singleAssessment.Odour ? "Yes" : "No"}</li>
-                                <li><b>Moisture:</b> {singleAssessment.Moisture ? "Yes" : "No"} </li>
-                                <li><b>Edges:</b> {singleAssessment.Edges} </li>
-                                <a><b>Dimensions:</b></a>
-                                <li><b>Length: </b> {singleAssessment.Length}mm</li>
-                                <li><b>Width:</b> {singleAssessment.Width}mm </li>
-                                <li><b>Depth: </b> {singleAssessment.Depth}mm</li>
-                            </ul>
-                            <h3>Dressing Regimen:</h3>
-                            <ul>
-                                <li><b>Cleanse: </b>{singleAssessment.Cleanse}</li>
-                                <li><b>Primary Dressing: </b>{singleAssessment.Primary}</li>
-                                <li><b>Secondary Dressing: </b>{singleAssessment.Secondary}</li>
-                                <li><b>Fixation: </b>{singleAssessment.Fixation}</li>
-                                <li><b>Additional Interventions: </b>{singleAssessment.AdditionalIntervention}</li>
-                            </ul>
-                        </Card>) :
-                        <Card><i>Select wound from history to review assessment details here.</i></Card>}
-
-                </Row>
-            </Column>
-        </Row>
-    </Layout >
+                        </Card>
+                    </Row>
+                </Column>
+                <Column size={"is-6"}>
+                    <Button link={"/wound_assessment"}>Enter New Assessment</Button>
+                    <Row>
+                        {singleAssessment.id ?
+                            (<Card title={`Wound review (${singleAssessment.AssessmentDate})`}>
+                                <h3>Assessment Details:</h3>
+                                <ul>
+                                    <li><b>Tissue Base:</b> {singleAssessment.TissueBase}</li>
+                                    <li><b>Infection:</b> {singleAssessment.Infection ? "Yes" : "No"} </li>
+                                    <li><b>Odour:</b> {singleAssessment.Odour ? "Yes" : "No"}</li>
+                                    <li><b>Moisture:</b> {singleAssessment.Moisture ? "Yes" : "No"} </li>
+                                    <li><b>Edges:</b> {singleAssessment.Edges} </li>
+                                    <li><b>Length: </b> {singleAssessment.Length}mm</li>
+                                    <li><b>Width:</b> {singleAssessment.Width}mm </li>
+                                    <li><b>Depth: </b> {singleAssessment.Depth}mm</li>
+                                </ul>
+                                <h3>Dressing Regimen:</h3>
+                                <ul>
+                                    <li><b>Cleanse: </b>{singleAssessment.Cleanse}</li>
+                                    <li><b>Primary Dressing: </b>{singleAssessment.Primary}</li>
+                                    <li><b>Secondary Dressing: </b>{singleAssessment.Secondary}</li>
+                                    <li><b>Fixation: </b>{singleAssessment.Fixation}</li>
+                                    <li><b>Additional Interventions: </b>{singleAssessment.AdditionalIntervention}</li>
+                                </ul>
+                            </Card>) :
+                            <Card><i>Select wound from history to review assessment details here.</i></Card>}
+                    </Row>
+                </Column>
+            </Row>
+        </Layout >
+    </>
 }
 
 export default WoundHistoryPage;

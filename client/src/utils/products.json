@@ -1,6 +1,8 @@
 [
     {
         "Name": "Iodosorb",
+        "Indications": "Wounds with presence of infection or require autolytic debridement",
+        "Contraindications": "Necrotic wounds, sensitivity to Iodine, Long-term use",
         "Tissue": {
             "Granulation": true,
             "Slough": true,
@@ -16,10 +18,7 @@
             "High": false,
             "Nil": true
         },
-        "Infection": {
-            "Yes": true,
-            "No": false
-        },
+        "Infection": true,
         "Edges": {
             "Healthy": true,
             "Macerated": false,
@@ -31,6 +30,8 @@
     },
     {
         "Name": "Iodosorb Powder",
+        "Indications": "Wounds with high-moderate levels of exudate, presence of infection.",
+        "Contraindications": "Dry/Low exudating wounds,sensitivity to Iodine, Long-term use. ",
         "Tissue": {
             "Granulation": true,
             "Slough": true,
@@ -46,10 +47,7 @@
             "High": true,
             "Nil": false
         },
-        "Infection": {
-            "Yes": true,
-            "No": false
-        },
+        "Infection": true,
         "Edges": {
             "Healthy": true,
             "Macerated": true,
@@ -61,6 +59,8 @@
     },
     {
         "Name": "Durafiber",
+        "Indications": "Wounds with moderate-high levels of exudate, require autolytic debridement, presence of cavities",
+        "Contraindications": "Low exudating wounds, necrotic wounds",
         "Tissue": {
             "Granulation": true,
             "Slough": true,
@@ -76,16 +76,153 @@
             "High": true,
             "Nil": false
         },
-        "Infection": {
-            "Yes": false,
-            "No": true
-        },
+        "Infection": false,
         "Edges": {
             "Healthy": true,
             "Macerated": true,
             "Tunnelling": true,
             "Undermined": true,
             "Inflammed": false,
+            "Hyperkeratosis": true
+        }
+    },
+    {
+        "Name": "Solosite",
+        "Indications": "Wounds with nil or low levels of exudate, require autolytic debridement",
+        "Contraindications": "Infection, moderate-high levels of exudate, Ischeamic wounds",
+        "Tissue": {
+            "Granulation": true,
+            "Slough": true,
+            "Epithelialisation": false,
+            "Necrotic": false,
+            "Eschar": false,
+            "Bone": false
+        },
+        "Moisture": {
+            "Low": true,
+            "Moderate": true,
+            "High": false,
+            "Nil": false
+        },
+        "Infection": false,
+        "Edges": {
+            "Healthy": true,
+            "Macerated": false,
+            "Tunnelling": false,
+            "Undermined": false,
+            "Inflammed": false,
+            "Hyperkeratosis": true
+        }
+    },
+    {
+        "Name": "Aquacel Ag",
+        "Indications": "Wounds with moderate-high levels of exudate, require autolytic debridement, presence of infection",
+        "Contraindications": "Nil or low exidate levels, sensitivity to silver, nil infection present",
+        "Tissue": {
+            "Granulation": true,
+            "Slough": true,
+            "Epithelialisation": false,
+            "Necrotic": false,
+            "Eschar": false,
+            "Bone": false
+        },
+        "Moisture": {
+            "Low": false,
+            "Moderate": true,
+            "High": true,
+            "Nil": false
+        },
+        "Infection": true,
+        "Edges": {
+            "Healthy": true,
+            "Macerated": true,
+            "Tunnelling": true,
+            "Undermined": true,
+            "Inflammed": true,
+            "Hyperkeratosis": true
+        }
+    },
+    {
+        "Name": "Aquacel",
+        "Indications": "Wounds with moderate-high levels of exudate, require autolytic debridement",
+        "Contraindications": "Nil or low exidate levels",
+        "Tissue": {
+            "Granulation": true,
+            "Slough": true,
+            "Epithelialisation": false,
+            "Necrotic": false,
+            "Eschar": false,
+            "Bone": false
+        },
+        "Moisture": {
+            "Low": false,
+            "Moderate": true,
+            "High": true,
+            "Nil": false
+        },
+        "Infection": false,
+        "Edges": {
+            "Healthy": true,
+            "Macerated": true,
+            "Tunnelling": true,
+            "Undermined": true,
+            "Inflammed": true,
+            "Hyperkeratosis": true
+        }
+    },
+    {
+        "Name": "Sorbact",
+        "Indications": "Wounds with infection, suitable for packing of wounds",
+        "Contraindications": "Nil contraindications",
+        "Tissue": {
+            "Granulation": true,
+            "Slough": true,
+            "Epithelialisation": true,
+            "Necrotic": true,
+            "Eschar": true,
+            "Bone": true
+        },
+        "Moisture": {
+            "Low": true,
+            "Moderate": true,
+            "High": true,
+            "Nil": true
+        },
+        "Infection": true,
+        "Edges": {
+            "Healthy": true,
+            "Macerated": true,
+            "Tunnelling": true,
+            "Undermined": true,
+            "Inflammed": true,
+            "Hyperkeratosis": true
+        }
+    },
+    {
+        "Name": "Sorbact",
+        "Indications": "Wounds with infection, suitable for packing of wounds",
+        "Contraindications": "Nil contraindications",
+        "Tissue": {
+            "Granulation": true,
+            "Slough": true,
+            "Epithelialisation": true,
+            "Necrotic": true,
+            "Eschar": true,
+            "Bone": true
+        },
+        "Moisture": {
+            "Low": true,
+            "Moderate": true,
+            "High": true,
+            "Nil": true
+        },
+        "Infection": false,
+        "Edges": {
+            "Healthy": true,
+            "Macerated": true,
+            "Tunnelling": true,
+            "Undermined": true,
+            "Inflammed": true,
             "Hyperkeratosis": true
         }
     }

@@ -1,10 +1,8 @@
 import React from "react";
 import { Link } from 'react-router-dom'
-import { Button } from 'antd'
 
 function Buttons({ onClick, children, link }) {
-    return <Button type="primary" onClick={onClick}><Link to={link}>{children}</Link></Button>;
+    return <button className="button is-info allButtons" onClick={onClick}><Link className="link" to={link}>{children}</Link></button>
 }
-
 
 export default Buttons;
