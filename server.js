@@ -21,15 +21,13 @@ app.use(passport.session());
 
 // API routes
 app.use(APIroutes);
-// Send every other request to the React app
-// Define any API routes before this runs
+
+//HTML Route
 app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname, "./client/build/index.html"));
 });
 
-// app.listen(PORT, () => {
-//   console.log(`🌎 ==> API server now on port ${PORT}!`);
-// });
+
 db.sequelize.sync({ force: false }).then(function () {
   app.listen(PORT, function () {
     console.log("App listening on PORT " + PORT);
