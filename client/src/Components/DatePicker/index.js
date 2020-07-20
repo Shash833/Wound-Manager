@@ -1,11 +1,11 @@
 import React from "react";
-import { DatePicker } from 'antd';
+import { Form, DatePicker } from 'antd';
 
 
 const dateFormatList = ['DD/MM/YYYY', 'DD/MM/YY'];
 
 function Date({ label, onChange }) {
-    return <><label className="label">{label}</label><DatePicker onChange={onChange} format={dateFormatList} /></>
+    return <><Form.Item label={label}><DatePicker onChange={onChange} format={dateFormatList} /></Form.Item></>
 
 }
 
