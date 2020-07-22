@@ -6,6 +6,7 @@ import Card from "../Components/Card"
 import Row from "../Components/Row"
 import Form from "../Components/Form"
 import FormItem from "../Components/FormItem"
+import TextItem from "../Components/TextArea"
 import DatePicker from "../Components/DatePicker"
 import Button from "../Components/Button"
 import axios from "axios";
@@ -49,7 +50,8 @@ function NewPatientForm(props) {
     }
 
     return <>
-        <Breadcrumb navArray={[{ label: `New patient registration:`, link: "/new_patient_form" }]}></Breadcrumb><Layout>
+        <Breadcrumb navArray={[{ label: `New patient registration:`, link: "/new_patient_form" }]} />
+        <Layout>
             <Row>
                 <Column size={"is-three-fifths is-offset-one-fifth"}>
                     <Card title="Register new patient:">
@@ -60,8 +62,8 @@ function NewPatientForm(props) {
                             <FormItem label={"Address:"} value={Address} onChange={e => setAddress(e.target.value)} />
                             <FormItem label={"Contact Number:"} value={phone} onChange={e => setPhone(e.target.value)} />
                             <FormItem label={"GP Details:"} value={gpDetails} onChange={e => setGPDetails(e.target.value)} />
-                            <FormItem label={"Medical History:"} value={medHistory} onChange={e => setMedHistory(e.target.value)} />
-                            <FormItem label={"Current Medications:"} value={medication} onChange={e => setMedication(e.target.value)} />
+                            <TextItem label={"Medical History:"} value={medHistory} onChange={e => setMedHistory(e.target.value)} />
+                            <TextItem label={"Current Medications:"} value={medication} onChange={e => setMedication(e.target.value)} />
                         </Form>
                         <Row>
                             <Button onClick={(!FirstName || !LastName || !DOB || !Address || !phone || !gpDetails || !medHistory || !medication) ? false : handleInput} link={(!FirstName || !LastName || !DOB || !Address || !phone || !gpDetails || !medHistory || !medication) ? false : "home"}>Enter new patient</Button>

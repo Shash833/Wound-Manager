@@ -1,9 +1,9 @@
 {
     "Tissue": {
-        "Granulation": "When the wound bed has healthy granulation tissue, treatment goals should aim to maintain granulation and promote epithelialisation. Consider use of dressings which maintain adequate moisture levels to help ",
+        "Granulation": "When the wound bed has healthy granulation tissue, treatment goals should aim to maintain granulation and promote epithelialisation. Consider use of dressings which maintain adequate moisture levels to help promote moist wound healing.",
         "Slough": "When slough is present on the wound bed, treatment should aim towards debridement of the non-viable tissue to promote granulation. This can be carried out through the use of dressings which promote autolytic debridement or conservative sharps debridement.",
-        "Epithelialisation": "When epithelialisation tissue is present, treatment goals should aim to protect and maintain this. Consider the use of protective and low adherant dressings.",
-        "Necrotic": "When necrotic tissue is present in the wound base, dressing goals should aim toward debridement of non-viable tissue. If the wound is present on the lower limb, it is crucial to first investigate vascular supply before any form of debridement is carried out (if vascular insufficiency is detected, use a dry dressing refer to a vascular specialist). If suitable for debridement, consider the use of dressings which promote autolytic debridement.",
+        "Epithelialisation": "When epithelialisation tissue is present, treatment goals should aim to protect and maintain this to reduce risk of breakdown. Consider the use of protective and low adherant dressings.",
+        "Necrotic": "When necrotic tissue is present in the wound base, dressing goals should aim toward debridement of non-viable tissue. If the wound is present on the lower limb, it is crucial to first investigate vascular supply before any form of debridement is carried out (if vascular insufficiency is detected, use a dry dressing and refer to a vascular specialist). If suitable for debridement, consider the use of dressings which promote autolytic debridement.",
         "Eschar": "When eschar is present on the wound base, treatment goals should aim toward debridement of non-viable tissue. Consider dressings which promote autolytic debridement",
         "Bone": "When exposed bone is present, referral to a vascular or orthopeadic specialist is crucial. "
     },
@@ -14,7 +14,7 @@
         "Nil": "When the wound base is dry, if it is appropriate to do so, consider the use of dressings which hydrate the wound to promote autolytic debridement. In the case of ischeamic wounds of the lower limb, please consider the patient's vascular status first."
     },
     "Infection": {
-        "Yes": "In the presence of clinical signs of infection, please consider the use of antimicrobial dressings to to help control any local infection. Monitor for signs of systemic infection",
+        "Yes": "In the presence of clinical signs of infection, please consider the use of antimicrobial dressings to to help control any local infection. Monitor for signs of systemic infection and consider appropriate referrals.",
         "No": "If no clinical signs of infection are present, the use of antimicrobial dressings are not required unless clinically indicated."
     },
     "Edges": {

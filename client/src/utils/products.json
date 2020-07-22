@@ -2,7 +2,7 @@
     {
         "Name": "Iodosorb",
         "Indications": "Wounds with presence of infection or require autolytic debridement",
-        "Contraindications": "Necrotic wounds, sensitivity to Iodine, Long-term use",
+        "Contraindications": "Necrotic wounds, Sensitivity to Iodine, Long-term use",
         "Tissue": {
             "Granulation": true,
             "Slough": true,
@@ -30,7 +30,7 @@
     },
     {
         "Name": "Iodosorb Powder",
-        "Indications": "Wounds with high-moderate levels of exudate, presence of infection.",
+        "Indications": "Wounds with high-moderate levels of exudate, Presence of infection.",
         "Contraindications": "Dry/Low exudating wounds,sensitivity to Iodine, Long-term use. ",
         "Tissue": {
             "Granulation": true,
@@ -59,8 +59,8 @@
     },
     {
         "Name": "Durafiber",
-        "Indications": "Wounds with moderate-high levels of exudate, require autolytic debridement, presence of cavities",
-        "Contraindications": "Low exudating wounds, necrotic wounds",
+        "Indications": "Wounds with moderate-high levels of exudate, Require autolytic debridement, Presence of cavities",
+        "Contraindications": "Low exudating wounds, Necrotic wounds",
         "Tissue": {
             "Granulation": true,
             "Slough": true,
@@ -88,8 +88,8 @@
     },
     {
         "Name": "Solosite",
-        "Indications": "Wounds with nil or low levels of exudate, require autolytic debridement",
-        "Contraindications": "Infection, moderate-high levels of exudate, Ischeamic wounds",
+        "Indications": "Wounds with nil or low levels of exudate, Require autolytic debridement",
+        "Contraindications": "Infection, Moderate-high levels of exudate, Ischeamic wounds",
         "Tissue": {
             "Granulation": true,
             "Slough": true,
@@ -116,8 +116,8 @@
     },
     {
         "Name": "Aquacel Ag",
-        "Indications": "Wounds with moderate-high levels of exudate, require autolytic debridement, presence of infection",
-        "Contraindications": "Nil or low exidate levels, sensitivity to silver, nil infection present",
+        "Indications": "Wounds with moderate-high levels of exudate, Require autolytic debridement, Presence of infection",
+        "Contraindications": "Nil or low exidate levels, Sensitivity to silver, Nil infection present",
         "Tissue": {
             "Granulation": true,
             "Slough": true,
@@ -144,7 +144,7 @@
     },
     {
         "Name": "Aquacel",
-        "Indications": "Wounds with moderate-high levels of exudate, require autolytic debridement",
+        "Indications": "Wounds with moderate-high levels of exudate, Require autolytic debridement",
         "Contraindications": "Nil or low exidate levels",
         "Tissue": {
             "Granulation": true,
@@ -172,7 +172,7 @@
     },
     {
         "Name": "Sorbact",
-        "Indications": "Wounds with infection, suitable for packing of wounds",
+        "Indications": "Wounds with infection, Suitable for packing of wounds",
         "Contraindications": "Nil contraindications",
         "Tissue": {
             "Granulation": true,
@@ -200,7 +200,7 @@
     },
     {
         "Name": "Sorbact",
-        "Indications": "Wounds with infection, suitable for packing of wounds",
+        "Indications": "Wounds with infection, Suitable for packing of wounds",
         "Contraindications": "Nil contraindications",
         "Tissue": {
             "Granulation": true,

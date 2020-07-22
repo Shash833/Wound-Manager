@@ -5,6 +5,7 @@ import Row from "../Components/Row"
 import Column from "../Components/Columns"
 import Form from "../Components/Form"
 import FormItem from "../Components/FormItem"
+import TextItem from "../Components/TextArea"
 import Card from "../Components/Card"
 import Select from "../Components/Select"
 import DatePicker from "../Components/DatePicker"
@@ -23,8 +24,7 @@ function InitialWoundEntry(props) {
     const [AdditionalInfo, setInfo] = useState()
 
     //Array of choices to display in "Aetiology" dropdown
-    const aetiologyChoices = ["Vascular", "Neurological", "Venous", "Pressure Injury", "Skin Tear", "Surgical"]
-
+    const aetiologyChoices = ["Vascular", "Neuropathic", "Venous", "Pressure Injury", "Skin Tear", "Surgical"]
 
     //Event handler for form submission
     const handleInput = async (event) => {
@@ -44,16 +44,15 @@ function InitialWoundEntry(props) {
     }
 
     return <Layout>
-        <Breadcrumb navArray={[{ label: `Patient: ${patient.FirstName} ${patient.LastName}` }, { label: "New wound form" }]}></Breadcrumb>
+        <Breadcrumb navArray={[{ label: `Patient: ${patient.FirstName} ${patient.LastName}` }, { label: "New wound form" }]} />
         <Row>
             <Column size={"is-6 is-offset-3"}>
                 <Card title="Initial Wound Entry">
                     <Form labelSpan={10}>
-                        <FormItem label="Location:" value={Location} onChange={e => setLocation(e.target.value)}>
-                        </FormItem>
-                        <Select label={"Aetiology"} array={aetiologyChoices} onClick={(e) => setAetiology(e)}></Select>
-                        <DatePicker label={"Date Discovered: "} onChange={(date, dateString) => setDate(dateString)}></DatePicker>
-                        <FormItem label="Additional information:" value={AdditionalInfo} onChange={e => setInfo(e.target.value)}></FormItem>
+                        <FormItem label="Location:" value={Location} onChange={e => setLocation(e.target.value)} />
+                        <Select label={"Aetiology"} array={aetiologyChoices} onClick={(e) => setAetiology(e)} />
+                        <DatePicker label={"Date Discovered: "} onChange={(date, dateString) => setDate(dateString)} />
+                        <TextItem label="Additional information:" value={AdditionalInfo} onChange={e => setInfo(e.target.value)} />
                     </Form>
                     <Button onClick={(!Location || !Aetiology || !DateDiscovered || !AdditionalInfo) ? false : handleInput} link={(!Location || !Aetiology || !DateDiscovered || !AdditionalInfo) ? false : "patient"}>Submit</Button>
                 </Card>

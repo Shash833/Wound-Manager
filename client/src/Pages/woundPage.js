@@ -46,7 +46,7 @@ function WoundHistoryPage() {
 
 
     return <>
-        <Breadcrumb navArray={[{ label: `Patient: ${patient.FirstName} ${patient.LastName}`, link: "/patient" }, { label: `Wound: ${Wound.WoundLocation}(${Wound.DateDiscovered})`, link: "/wound" }]}></Breadcrumb>
+        <Breadcrumb navArray={[{ label: `Patient: ${patient.FirstName} ${patient.LastName}`, link: "/patient" }, { label: `Wound: ${Wound.WoundLocation}(${Wound.DateDiscovered})`, link: "/wound" }]} />
         <Layout>
             <Row>
                 <Column size={"is-5"}>
@@ -58,7 +58,7 @@ function WoundHistoryPage() {
                             <Divider />
                             <p><b>Aetiology: </b>{Wound.Aetiology}</p>
                             <Divider />
-                            <p><b>Additional Information/Assessments: </b>{Wound.AdditionalInfo}</p>
+                            <p><b>Additional Information/Assessments: </b><br></br>{Wound.AdditionalInfo}</p>
                         </Card>
                     </Row>
                     <Row>
@@ -86,7 +86,8 @@ function WoundHistoryPage() {
                                     <li><b>Tissue Base:</b> {singleAssessment.TissueBase}</li>
                                     <li><b>Infection:</b> {singleAssessment.Infection ? "Yes" : "No"} </li>
                                     <li><b>Odour:</b> {singleAssessment.Odour ? "Yes" : "No"}</li>
-                                    <li><b>Moisture:</b> {singleAssessment.Moisture ? "Yes" : "No"} </li>
+                                    <li><b>Moisture:</b> {singleAssessment.Moisture} </li>
+                                    <li><b>Exudate type: </b>{singleAssessment.Exudate}</li>
                                     <li><b>Edges:</b> {singleAssessment.Edges} </li>
                                     <li><b>Length: </b> {singleAssessment.Length}mm</li>
                                     <li><b>Width:</b> {singleAssessment.Width}mm </li>

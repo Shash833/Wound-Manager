@@ -31,25 +31,27 @@ function RegistrationForm() {
         catch (error) { console.log(error) }
     }
 
-    return <Layout>
-        <Row>
-            <Column size={"is-half is-offset-one-quarter"}>
-                <Card title={'Register your organisation:'} id={'centralize'}>
-                    <Form>
-                        <FormItem label={"Organisation Name:"} value={userName} onChange={e => setUserName(e.target.value)} />
-                        <FormItem label={"Address:"} value={address} onChange={e => setAddress(e.target.value)} />
-                        <FormItem label={"Account holder:"} value={accountHolder} onChange={e => setAccountHolder(e.target.value)} />
-                        <FormItem label={"Contact Number:"} value={contactNumber} onChange={e => setContactNumber(e.target.value)} />
-                        <FormItem label={"Password:"} value={password} type={"password"} onChange={e => setPassword(e.target.value)} />
-                    </Form>
-                    <Row>
-                        <Button onClick={(!userName || !address || !accountHolder || !contactNumber || !password) ? false : handleInput} link={(!userName || !address || !accountHolder || !contactNumber || !password) ? false : "/"}>Submit</Button>
-                    </Row>
-                    <Row justify={'center'}><Button link={"/"}>Return to login page</Button></Row>
-                </Card>
-            </Column>
-        </Row>
-    </Layout>
+    return <>
+        <Layout>
+            <Row>
+                <Column size={"is-half is-offset-one-quarter"}>
+                    <Card title={'Register your organisation:'} id={'centralize'}>
+                        <Form>
+                            <FormItem label={"Organisation Name:"} value={userName} onChange={e => setUserName(e.target.value)} />
+                            <FormItem label={"Address:"} value={address} onChange={e => setAddress(e.target.value)} />
+                            <FormItem label={"Account holder:"} value={accountHolder} onChange={e => setAccountHolder(e.target.value)} />
+                            <FormItem label={"Contact Number:"} value={contactNumber} onChange={e => setContactNumber(e.target.value)} />
+                            <FormItem label={"Password:"} value={password} type={"password"} onChange={e => setPassword(e.target.value)} />
+                        </Form>
+                        <Row>
+                            <Button onClick={(!userName || !address || !accountHolder || !contactNumber || !password) ? false : handleInput} link={(!userName || !address || !accountHolder || !contactNumber || !password) ? false : "/"}>Submit</Button>
+                        </Row>
+                        <Row justify={'center'}><Button link={"/"}>Return to login page</Button></Row>
+                    </Card>
+                </Column>
+            </Row>
+        </Layout>
+    </>
 }
 
 export default RegistrationForm;

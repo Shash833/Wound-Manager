@@ -102,19 +102,19 @@ function WoundAssessmentPage() {
     }
 
     return <>
-        <Breadcrumb navArray={[{ label: `Patient: ${patient.FirstName} ${patient.LastName}`, link: "/patient" }, { label: `Wound: ${Wound.WoundLocation}(${Wound.DateDiscovered})`, link: "/wound" }, { label: "New Wound Assessment", link: "/wound_assessment" }]}></Breadcrumb>
+        <Breadcrumb navArray={[{ label: `Patient: ${patient.FirstName} ${patient.LastName}`, link: "/patient" }, { label: `Wound: ${Wound.WoundLocation}(${Wound.DateDiscovered})`, link: "/wound" }, { label: "New Wound Assessment", link: "/wound_assessment" }]} />
         <Layout>
             <Row>
                 <Column size={"is-4"}>
                     <Card title={"Objective Wound assessment:"}>
                         <Form >
                             <DatePicker label={"Date: "} onChange={(date, dateString) => setDate(dateString)} />
-                            <Select label={"Tissue Base:"} array={tissueArray} onClick={(e) => setTissue(e)}></Select>
-                            <Select label={"Infection"} array={booleanChoices} onClick={(e) => { (e === "Yes") ? setInfection(true) : setInfection(false) }}></Select>
-                            <Select label={"Odour"} array={booleanChoices} onClick={(e) => { (e === "Yes") ? setOdour(true) : setOdour(false) }}></Select>
-                            <Select label={"Exudate Type:"} array={exudateArray} onClick={e => setExudate(e)}></Select>
-                            <Select label={"Moisture Level:"} array={moistureArray} onClick={e => setMoisture(e)}></Select>
-                            <Select label={"Edges:"} array={edgeArray} onClick={e => setEdges(e)}></Select>
+                            <Select label={"Tissue Base:"} array={tissueArray} onClick={(e) => setTissue(e)} />
+                            <Select label={"Infection"} array={booleanChoices} onClick={(e) => { (e === "Yes") ? setInfection(true) : setInfection(false) }} />
+                            <Select label={"Odour"} array={booleanChoices} onClick={(e) => { (e === "Yes") ? setOdour(true) : setOdour(false) }} />
+                            <Select label={"Exudate Type:"} array={exudateArray} onClick={e => setExudate(e)} />
+                            <Select label={"Moisture Level:"} array={moistureArray} onClick={e => setMoisture(e)} />
+                            <Select label={"Edges:"} array={edgeArray} onClick={e => setEdges(e)} />
                             <hr></hr>
                             <Row><h4>Measurements: </h4></Row>
                             <FormItem label={"Length(mm):"} value={Length} onChange={e => setLength(e.target.value)} />
@@ -157,6 +157,8 @@ function WoundAssessmentPage() {
                                     <div><b>Contraindications: </b>{product.Contraindications}</div>
                                 </Alert>))}
                             </div>
+                            <br></br>
+                            <div><i>Disclaimer: Please note, the above information is intended to provide guidance in clinical decision making. Please apply clinical judgement to individual cases when considering these guides during treatment.</i></div>
                         </Card>
                     </Column> : false}
             </Row>

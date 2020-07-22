@@ -46,10 +46,11 @@ function SearchPage() {
         catch (error) { console.log(error) }
     }
 
-    return (<><Breadcrumb navArray={[{}]}></Breadcrumb>
+    return <>
+        <Breadcrumb navArray={[{}]} />
         <Layout>
             <Row>
-                <h2>{user.dataValues.username} wound management tool.</h2>
+                <h2>{user.dataValues.username} Wound Management Tool</h2>
             </Row>
             <Row>
                 <Column size={"is-10"}><Search placeholder={'Search for patient by surname'} onChange={e => setSearch(e.target.value)} onSearch={searchPatient}></Search></Column>
@@ -57,14 +58,14 @@ function SearchPage() {
             </Row>
             <Row>
                 <Column>
-                    <PatientTable data={Patients}></PatientTable>
+                    <PatientTable data={Patients} />
                 </Column>
             </Row>
         </Layout>
         <Modal isOpen={isOpen} onRequestClose={() => setIsOpen(false)}>
             <NewPatient addPatient={(value) => setPatients([value, ...Patients])} close={() => setIsOpen(false)} />
         </Modal>
-    </>)
+    </>
 }
 
 export default SearchPage;

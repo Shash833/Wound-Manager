@@ -36,7 +36,8 @@ function PatientPage() {
         getWounds()
     }, [])
 
-    return (<><Breadcrumb navArray={[{ label: `Patient: ${patient.FirstName} ${patient.LastName}`, link: "/patient" }]}></Breadcrumb>
+    return <>
+        <Breadcrumb navArray={[{ label: `Patient: ${patient.FirstName} ${patient.LastName}`, link: "/patient" }]} />
         <Layout>
             <Row>
                 <Column size={"is-4"}>
@@ -73,7 +74,7 @@ function PatientPage() {
         <Modal isOpen={isOpen} onRequestClose={() => setIsOpen(false)}>
             <NewWound addWound={(value) => setWounds([value, ...Wounds])} close={() => setIsOpen(false)} />
         </Modal>
-    </>)
+    </>
 }
 
 export default PatientPage;

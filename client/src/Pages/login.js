@@ -42,10 +42,8 @@ function Login({ history }) {
             <Column size={"is-half is-offset-one-quarter"}>
                 <Card title={"Login"} id={'centralize'}>
                     <Form>
-                        <FormItem label={"Organisation Name:"} name={"Organisation Name"} value={organisationName} onChange={e => setName(e.target.value)}>
-                        </FormItem>
-                        <FormItem label={"Password:"} name={"Password"} type={"password"} value={'password'} onChange={e => setPassword(e.target.value)}>
-                        </FormItem>
+                        <FormItem label={"Organisation Name:"} name={"Organisation Name"} value={organisationName} onChange={e => setName(e.target.value)} />
+                        <FormItem label={"Password:"} name={"Password"} type={"password"} value={'password'} onChange={e => setPassword(e.target.value)} />
                     </Form>
                     {errorMessage ? <div><i>{errorMessage}</i></div> : false}
                     <Row>
