@@ -2,12 +2,12 @@ import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Header from "./Components/Header"
 import Wrapper from "./Components/Wrapper"
-import Login from "./Pages/login"
-import Register from "./Pages/registrationForm"
-import SearchPage from "./Pages/searchPage"
-import Patient from "./Pages/patientPage"
-import WoundAssessment from './Pages/woundAssessment'
-import WoundPage from "./Pages/woundPage"
+import Login from "./Pages/Login"
+import Register from "./Pages/RegistrationForm"
+import SearchPage from "./Pages/SearchPage"
+import Patient from "./Pages/PatientPage"
+import WoundAssessment from './Pages/WoundAssessment'
+import WoundPage from "./Pages/WoundPage"
 import UserContextProvider from "./Context/AuthContext";
 import PatientContextProvider from "./Context/PatientContext";
 import WoundContextProvider from "./Context/WoundContext";

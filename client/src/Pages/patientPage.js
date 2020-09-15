@@ -8,7 +8,7 @@ import Card from "../Components/Card"
 import Row from "../Components/Row"
 import Button from "../Components/Button"
 import Table from "../Components/Table"
-import NewWound from "../Pages/initialWoundEntry"
+import NewWound from "./InitialWoundEntry"
 import axios from "axios"
 import { PatientContext } from "../Context/PatientContext"
 

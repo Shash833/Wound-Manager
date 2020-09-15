@@ -9,7 +9,7 @@ import Search from "../Components/SearchBox"
 import Button from "../Components/Button"
 import PatientTable from "../Components/PatientTable"
 import axios from "axios";
-import NewPatient from "../Pages/newPatientForm"
+import NewPatient from "./NewPatientForm"
 
 
 function SearchPage() {
