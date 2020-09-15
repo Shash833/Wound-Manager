@@ -29,7 +29,10 @@ app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname, "./client/build/index.html"));
 });
 
+<<<<<<< HEAD
 //
+=======
+>>>>>>> 3c3300f6ca8641299024629e7a88a81aa1b786d6
 db.sequelize.sync({ force: false }).then(function () {
   app.listen(PORT, function () {
     console.log("App listening on PORT " + PORT);
