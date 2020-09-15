@@ -32,7 +32,7 @@ router.post("/api/users", async function ({ body: { username, Password, Address,
     catch (error) { console.log(error) }
 })
 //To authenticate user on login:
-router.post("/api/login", passport.authenticate("local"), async function (req, res) {
+router.post("/api/login", passport.authenticate("local"), function (req, res) {
     try {
         const userData = { ...req.user, Password: undefined }
         return res.json(userData);
